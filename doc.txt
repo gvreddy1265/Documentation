@@ -1,2 +1,0 @@
-this is my first file in git
-This is my update to the file
