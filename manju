@@ -1,0 +1,51 @@
+Initially,  I started my IT career as Linux Administrator, and then got chance to work on Devops Engineer.
+
+In my  IT career I have worked in many different Devops projects and Different Devops tools like
+
+§  Source Code Management tools are Git, Github
+
+§  Build tools are Ant and Maven
+
+§  Source Code Quality Management tool is Sonar Qube
+
+§  Artifact Repository management tools are xccNexus and Jfrog
+
+§  Continues Integration tool as Jenkins
+
+§  And worked on Application severs like Tomcat apace and webserver is Apache.
+
+§  Configuration management tool is Ansible and
+
+§  Container based technology as Docker.
+
+ 
+
+Coming to my roles and responsibilities  
+
+                             
+
+§  Creating repositories , braches  and Teams in Git and Github… providing read only and read write access to the teams based on the environment like Dev, QA and Production.
+
+§  Writing pom.xml 
+for the maven build tool and setting up build environment for the java projects specifically.
+
+§  Setting quality gates and quality profiles in Sonar Qube Quality management tool to check the quality of the  source code. And also configuring mail notification in sonar qube to view the quality report of  the Source code.
+
+§  Creating repositories in Nexus and Jfrog .. and adding those repository information in pom.xml to store the artifact (.jar,.war,.ear) into remote repository.
+
+§  Integrating all these Devops tools with Jenkins and creating jobs like free style and maven specific build to automate entire process of Development and Deployment process, also crating pipeline projects to define our own process as per the client requirement.
+§  Writing playbooks in Ansible to install and changing configuration in all the client machines.
+
+§  Writing Dockerfile to create our own customized images as per client requests.
+
+§  If newly onboarding project comes, we are only taking care of entire end to end process and installing all the devops tools from the scratch and setting up the Devops environment .
+
+§  Mainly we have installed these Devops tools in Linux Operating System , So I am very good in Linux commands and also written some shell scripts to automate daily jobs like to check health of servers and taking backup of Jenkins.
+
+§  If newly joiner come into our Project, I am giving KT and explaining what are the devops tools we are using for the current project and also explaining about structure and process of the project.
+
+ 
+
+ 
+
+These are the areas currently, I am working and the tools also.
