@@ -1,0 +1,35 @@
+Date:17th May 2022
+	GET by collection - 
+		It retrievs all the available records
+		Status code : 200 OK 
+					: 401 Unauthorized
+	GET by ID/Resource-
+		It retrieves specific resource data
+		Status Code: Success - 200 OK
+					 When no record found: 404 Not found
+	DELETE by ID/Resource
+		It removes the specific data from DB
+		When no record found: 404 Not found
+		delete successfully : 204 No Content
+
+
+Date: 18th May 2022
+What are environment variables in POSTMAN?
+	-- https://learning.postman.com/docs/sending-requests/managing-environments/
+How to Export and import postman data?
+	-- https://learning.postman.com/docs/getting-started/importing-and-exporting-data/
+What is Pagination?
+	
+	Limit  : how recrods per page 
+	offset : from which record
+What is json schema?
+	Schema : data type of each value in a responce object
+POST
+	- Create new record in the DB, we use POST 
+	- Status code: 201 Created
+PUT
+API Versioning
+> 	  API Authentication
+>	  HTTP Status Codes
+
+
