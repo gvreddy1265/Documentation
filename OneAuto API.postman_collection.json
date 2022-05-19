@@ -1,0 +1,621 @@
+{
+	"variables": [],
+	"info": {
+		"name": "OneAuto API",
+		"_postman_id": "1a6b8404-f9ae-92a3-803f-da1923629e81",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Basic",
+			"description": "",
+			"item": [
+				{
+					"name": "GET PROD",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{host}}employees/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET  DEV",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "http://localhost:3000/employees/",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET/:id",
+					"request": {
+						"url": "{{host}}/employees/5",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"url": "{{host}}/employees/5",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PUT",
+					"request": {
+						"url": "{{host}}/employees/4",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Rominds\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "201 Created",
+					"request": {
+						"url": "{{host}}/employees/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"oneauto\",\r\n    \"jobTitleName\": \"Organization\",\r\n    \"firstName\": \"RominD\",\r\n    \"lastName\": \"Irani\",\r\n    \"preferredFullName\": \"Romin Irani\",\r\n    \"employeeCode\": \"E1234\",\r\n    \"region\": \"AL\",\r\n    \"phoneNumber\": \"408-1234567\",\r\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET Users Pagination",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{host}}/users?page=1&limit=8",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "limit",
+									"value": "8",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{adminToken}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get OAuth Token",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Token",
+					"request": {
+						"url": "{{host}}/token",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"clientId\":\"oneauto\",\n\t\"secret\":\"welcome123\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QueryParameters",
+			"description": "",
+			"item": [
+				{
+					"name": "GET  Query By Region",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": {
+							"raw": "{{host}}/employees?region=CA",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"employees"
+							],
+							"query": [
+								{
+									"key": "region",
+									"value": "CA",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status Codes",
+			"description": "",
+			"item": [
+				{
+					"name": "Success 2xx",
+					"description": "",
+					"item": [
+						{
+							"name": "200 OK",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "{{host}}/employees/",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{readOnlyToken}}",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "201 Created",
+							"request": {
+								"url": "{{host}}/employees/",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"oneauto\",\r\n    \"jobTitleName\": \"Organization\",\r\n    \"firstName\": \"Romin\",\r\n    \"lastName\": \"Irani\",\r\n    \"preferredFullName\": \"Romin Irani\",\r\n    \"employeeCode\": \"E1234\",\r\n    \"region\": \"CA\",\r\n    \"phoneNumber\": \"408-1234567\",\r\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ClientError 4xx",
+					"description": "",
+					"item": [
+						{
+							"name": "400 BadRequest",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "{{host}}/employees/",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"oneauto\",\n    \"jobTitleName\": \"Organization\",\n    \"firstName\": \"Romin\",\n    \"lastName\": \"Irani\",\n    \"preferredFullName\": \"Romin Irani\",\n    \"employeeCode\": \"E1\",\n    \"region\": \"CA\",\n    \"phoneNumber\": \"408-1234567\",\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "401 Unauthorized",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "{{host}}/employees/",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "invalidtoken7283648713iuoasfhlkajdshfklajdhfklajsdhfakjdfjadfglakjdshfkjadshfkadlk",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"oneauto\",\n    \"jobTitleName\": \"Organization\",\n    \"firstName\": \"Romin\",\n    \"lastName\": \"Irani\",\n    \"preferredFullName\": \"Romin Irani\",\n    \"employeeCode\": \"E1\",\n    \"region\": \"CA\",\n    \"phoneNumber\": \"408-1234567\",\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "403 Forbidden",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "{{host}}/employees/",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{readOnlyToken}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"oneauto\",\n    \"jobTitleName\": \"Organization\",\n    \"firstName\": \"Romin\",\n    \"lastName\": \"Irani\",\n    \"preferredFullName\": \"Romin Irani\",\n    \"employeeCode\": \"E1\",\n    \"region\": \"CA\",\n    \"phoneNumber\": \"408-1234567\",\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "404 Not Found",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "{{host}}/employees/302",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{readOnlyToken}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userId\": \"oneauto\",\n    \"jobTitleName\": \"Organization\",\n    \"firstName\": \"Romin\",\n    \"lastName\": \"Irani\",\n    \"preferredFullName\": \"Romin Irani\",\n    \"employeeCode\": \"E1\",\n    \"region\": \"CA\",\n    \"phoneNumber\": \"408-1234567\",\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "406 Not Supported",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										]
+									}
+								}
+							],
+							"request": {
+								"url": "{{host}}/employees/3",
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "akjdhfa",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"description": ""
+									}
+								],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "415 Unsupported Media Type",
+							"request": {
+								"url": "{{host}}/employees/3",
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/xml",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{token}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"oneauto\",\r\n    \"jobTitleName\": \"Organization\",\r\n    \"firstName\": \"Romin\",\r\n    \"lastName\": \"Irani\",\r\n    \"preferredFullName\": \"Romin Irani\",\r\n    \"employeeCode\": \"E1234\",\r\n    \"region\": \"CA\",\r\n    \"phoneNumber\": \"408-1234567\",\r\n    \"emailAddress\": \"romin.k.irani@gmail.com\"\r\n}"
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "409 Conflict",
+							"request": {
+								"url": "{{host}}/employees/",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"description": ""
+									},
+									{
+										"key": "Authorization",
+										"value": "{{adminToken}}",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "  {\n            \"userId\": \"rirani\",\n            \"jobTitleName\": \"Developer\",\n            \"firstName\": \"Romin\",\n            \"lastName\": \"Irani\",\n            \"preferredFullName\": \"Romin Irani\",\n            \"employeeCode\": \"E1234\",\n            \"region\": \"CA\",\n            \"phoneNumber\": \"408-1234567\",\n            \"emailAddress\": \"romin.k.irani@gmail.com\"\n        }"
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "ServerSideError",
+					"description": "",
+					"item": [],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Demo",
+			"description": "",
+			"item": []
+		}
+	]
+}
